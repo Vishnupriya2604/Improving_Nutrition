@@ -110,7 +110,7 @@ a:active {
     overflow:auto;
     height: 900px ;
     width:1366 px;
-    background-image:url(images_used/logo.jpg);
+    background-image:url(Images_Used/logo.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -124,7 +124,7 @@ a:active {
     overflow:auto;
     height: 700px ;
     width:1366 px;
-    background-image:url(images_used/burger2.jpg);
+    background-image:url(Images_Used/burger2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
