@@ -1,0 +1,332 @@
+*{
+    box-sizing:border-box;
+}
+
+html {
+ 
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #0c0c0c;
+    text-align: left;
+    background-color: #fff;
+}
+#toolbar-container .tab-toolbar
+{
+    display: none;
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.navbar{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    /*padding: .5rem 1rem;*/
+    background-color:rgba(0, 0, 0, 0.726);
+    height:50px;
+}
+.navbar-nav{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    margin-left: auto!important;
+}
+.navbar-collapse{
+    display: flex!important;
+    flex-basis: auto;
+    flex-grow: 1;
+    align-items: center;
+}
+.navbar.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-link {
+    display: block;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+li.nav-item:hover {
+  background-color:black;
+  border-bottom: 2px solid yellow;
+}
+
+h1 {
+    display: block;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+ul{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    margin-top: 0;
+    height: 50px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    padding: .5rem .5rem;
+}
+a {
+    color:white;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:focus {
+    color:gray ;
+    text-decoration: none;
+}
+#link{
+    color:black;
+    text-decoration: underline;
+}
+a:active {
+    color:gainsboro ;
+    text-decoration: none;
+}
+#home{
+    padding-top:100px;
+    position: relative;
+    overflow:auto;
+    height: 900px ;
+    width:1366 px;
+    background-image:url(images_used/logo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: right;
+    color: #fff;
+}
+#fastfood{
+    padding-top:100px;
+    position: relative;
+    overflow:auto;
+    height: 700px ;
+    width:1366 px;
+    background-image:url(images_used/burger2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: right;
+    color: #fff;
+}
+
+.top-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+#EDA{
+    padding-top:50px;
+    position:relative;
+}
+#intro{
+    width:100%;
+    float:left;
+    height: auto;
+}
+#padding: 1px 0 0 0;
+#margin: -1px auto 0 auto;
+#nutrition{
+
+   background-image: linear-gradient(to bottom right,#F2F2F2, #FFFFFF);
+}
+#eda_div,#nutrition_div{
+    overflow: auto;
+}
+#keto,#vegan,#lowcarb-c
+{
+    overflow: auto;
+}
+#intro{
+    overflow: auto;
+}
+
+#left-100{
+    width:100%;
+    float:left;
+    height:400px;
+}
+#left-110{
+    width:100%;
+    float:left;
+    height:300px;
+}
+#left{
+    width:70%;
+    float:left;
+    
+}
+#right{
+    width:30%;
+    float:right;
+    padding-top:10%;
+}
+#left-50{
+    width:50%;
+    float:left;
+    height: auto;
+}
+#right-50{
+    width:50%;
+    float:right;
+    height: auto;
+}
+
+.bar-line{
+    border-style: outset;
+    height:660px;
+}
+.bar-line-50{
+    border-style: outset;
+}
+
+.hide
+{
+    display: none;
+}
+#footer {
+	width: 1366 px;
+	height: 50px;
+	padding: 20px 0 4px 0;
+	text-align: center;
+	background: #555;
+	color: #aaa;
+	border-top: 1px solid #fff;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	font-size: 80%;
+}
+#footer a {
+	color: #fff;
+	text-decoration: none;
+}
+#display_none
+{
+   display:none !important; 
+}
+.names {
+    fill: none;
+    stroke: #fff;
+    stroke-linejoin: round;
+    }
+  
+      /* Tooltip CSS */
+      .d3-tip {
+      line-height: 1.5;
+      font-weight: 400;
+      font-family:"avenir next", Arial, sans-serif;
+      padding: 6px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #FFA500;
+      border-radius: 1px;
+      pointer-events: none;
+      }
+  
+      /* Creates a small triangle extender for the tooltip */
+      .d3-tip:after {      
+        box-sizing: border-box;
+        display: inline;
+        font-size: 8px;
+        width: 100%;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        pointer-events: none;
+        
+      }
+  
+      /* Northward tooltips */
+      .d3-tip.n:after {
+        content: "\25BC";
+        margin: -1px 0 0 0;
+        top: 100%;
+        left: 0;
+        text-align: center;
+      }
+  
+      /* Eastward tooltips */
+      .d3-tip.e:after {
+        content: "\25C0";
+        margin: -4px 0 0 0;
+        top: 50%;
+        left: -8px;
+      }
+  
+      /* Southward tooltips */
+      .d3-tip.s:after {
+        content: "\25B2";
+        margin: 0 0 1px 0;
+        top: -8px;
+        left: 0;
+        text-align: center;
+      }
+  
+      /* Westward tooltips */
+      .d3-tip.w:after {
+        content: "\25B6";
+        margin: -4px 0 0 -1px;
+        top: 50%;
+        left: 100%;
+      }
+  
+  /*    text{
+        pointer-events:none;
+      }*/
+  
+      .details{
+        color:white;
+      }
+
+      ul.inline_nav1 {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      li.inline_nav {
+        float: left;
+      }
+      
+      li.inline_nav a.inline_nav {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li.inline_nav a.inline_nav:hover:not(.active) {
+        background-color: #111;
+      }
+      
+      .test
+      {
+          display:none;
+      }
+      
+    

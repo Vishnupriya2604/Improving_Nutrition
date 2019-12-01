@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Loading css and js-->
+    <link rel="stylesheet" href="home.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+
+
+    <!--Link to external css from where icons are used in the Nav Bar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!--This section is for the navigation panel of the page-->
+    <section>
+        <nav class='navbar fixed-top'>
+            <ul class='navbar-nav'>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="home.html#home"><i class="fa fa-home"
+                            style="font-size:24px"></i>
+                        Home</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="home.html#EDA"><i class="fa fa-bar-chart"
+                            style="font-size:24px"></i>
+                        EDA</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="fastfood.html"><i class="fa fa-search"
+                            style="font-size:24px"></i>
+                        Fast Food Analysis</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="MachineLearning.html"><i
+                            class="fa fa-puzzle-piece" style="font-size:24px"></i>
+                        Machine Learning</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="Research.html"><i class="fa fa-book"
+                            style="font-size:24px"></i>
+                        Research</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="conclusion.html"><i class="fa fa-wpexplorer"
+                            style="font-size:24px"></i>
+                        Observations</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <!--This section is for the main page-->
+
+    <!--This section is used for displying Fast Food analysis-->
+    <!--<section id="fast-food">-->
+
+    <section id="fastfood">
+    </section>
+    <!--End of Fast Food Home section-->
+
+    <!--This section is for fast food data exploratory analysis-->
+    <!--Loading Tableau Visualization-->
+    <section id="EDA">
+        <div id="eda_div">
+            <div id="left">
+                <h1>Top 5 Fast Food Chain in U.S.</h1>
+                <div class="bar-line">
+                    <div class='tableauPlaceholder' id='viz1572812575696' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fa&#47;Fast_Food&#47;FastFood&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Fast_Food&#47;FastFood' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fa&#47;Fast_Food&#47;FastFood&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1572812575696'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>
+                            America loves fast food and a new study by NIH reveals just how often it’s consumed by them.
+                            About 85 million Americans eat fast food on any given day.
+                        </p>
+                    </li>
+                    <li>
+                        <p>The top five fast food chains in USA based on their revenue is Mc Donald’s, Starbucks, Dunkin
+                            Donuts, Taco Bell and Burger King. </p>
+                    </li>
+                    <li>
+                        <p>To understand the nutritional value of fast food I considered Mc Donald’s and Starbucks data.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Plotly Visualization-->
+        <div id='nutrition_div'>
+            <h1>McDonald's Menu Nutrition Information</h1>
+        </div>
+        </div>
+        <div id="eda_div">
+            <select id="mcdnutrients_dropdown" onchange="nutritionChange()">
+                <option value="calcium_199dc3b3-7e9d-455d-9106-179622aa9710">Calcium</option>
+                <option value="Calories_2b13568c-5a02-4ef6-8529-a1c6453aaecc">Calories</option>
+                <option value="carbs_8fc516b5-9ce6-4ca3-a384-913f22b82b2c">Carbohydrate</option>
+                <option value="fats_a0d4822a-7942-4ac7-9837-66e12d537a83">Fats</option>
+                <option value="protein_6933c0ee-7a14-45f4-93cb-266811f7b953">Protein</option>
+                <option value="sugar_16f8d219-edef-420a-b21a-6147f439c20e">Sugar</option>
+            </select>
+            <div id="left">
+                <h1 id="textholder_nutrient">Calcium</h1>
+                <script type="text/javascript" src="Visualizations/Fast_Food/MC_D/Calcium/plotlyjs-bundle.js"></script>
+                <script type="text/javascript" src="Visualizations/Fast_Food/MC_D/Calcium/calcium.js"></script>
+                <script type="text/javascript" src="Visualizations/Fast_Food/MC_D/calories/Plot_1/calories.js"></script>
+                <script type="text/javascript"
+                    src="Visualizations/Fast_Food/MC_D/Carbs/Plot_1/carbohydrate.js"></script>
+                <script type="text/javascript" src="Visualizations/Fast_Food/MC_D/Protein/Plot_2/protein.js"></script>
+                <script type="text/javascript" src="Visualizations/Fast_Food/MC_D/Fats/Plot1/fats.js"></script>
+                <script type="text/javascript" src="Visualizations/Fast_Food/MC_D/Sugar/Plot_1/sugar.js"></script>
+                <div id="199dc3b3-7e9d-455d-9106-179622aa9710" style="width: 100%; height: 100%;"
+                    class="plotly-graph-div"></div>
+                <div id="2b13568c-5a02-4ef6-8529-a1c6453aaecc" style="width: 100%; height: 100%;" data="no"
+                    class="plotly-graph-div"></div>
+                <div id="8fc516b5-9ce6-4ca3-a384-913f22b82b2c" style="width: 100%; height: 100%;" data="no"
+                    class="plotly-graph-div"></div>
+                <div id="6933c0ee-7a14-45f4-93cb-266811f7b953" style="width: 100%; height: 100%;" data="no"
+                    class="plotly-graph-div"></div>
+                <div id="a0d4822a-7942-4ac7-9837-66e12d537a83" style="width: 100%; height: 100%;" data="no"
+                    class="plotly-graph-div"></div>
+                <div id="16f8d219-edef-420a-b21a-6147f439c20e" style="width: 100%; height: 100%;" data="no"
+                    class="plotly-graph-div"></div>
+                <!--Loading Java script for dropdown Visualization-->
+                <script type="text/javascript" src="scripts/dropdown.js">
+
+                </script>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        Based on the Menu at Mc Donald’s, the nutritional value for each category can be seen in the box
+                        plot.
+                    </li>
+                    <li>
+                        The nutrients considered are Calcium, Carbohydrates, Calories, Fats, Protein and Sugar.
+                    </li>
+                    <li>
+                        From this we can determine the nutritional value of each category and choice wisely while
+                        ordering at Mc Donald's.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id='eda_div'>
+            <h1>Popular Items in the Mc Donald's Menu</h1>
+            <div id="left-100">
+                <ul>
+                    <li>
+                        The most popular items at Mc Donld's is the Cheese Burger, Big Mac, Fries, Chicken Nuggets and
+                        Frappe.
+                    </li>
+                    <li>
+                        <p>The pie charts show the nutritional value of each based on the daily nutrtional value. </p>
+                    </li>
+                    <li>
+                        <p>
+                            From these charts we can understand the nutritional content of each food item and can decide
+                            what to order and what to avoid.
+                            For Example, the chocolate chip frappe consists the most saturated fat and hence that can be
+                            avoided.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left-50">
+                <h1>Cheese Burger</h1>
+                <div id="vegan" class="bar-line-50">
+                    <div class='tableauPlaceholder' id='viz1574017170421' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ch&#47;Cheese_Burger&#47;Sheet1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Cheese_Burger&#47;Sheet1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ch&#47;Cheese_Burger&#47;Sheet1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1574017170421'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                <!--Loading Tableau Visualization-->
+            </div>
+            <div id="right-50">
+                <h1>BigMac</h1>
+                <div id="vegan" class="bar-line-50">
+                    <div class='tableauPlaceholder' id='viz1574017217381' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bi&#47;BigMac_15740165717910&#47;Sheet1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='BigMac_15740165717910&#47;Sheet1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bi&#47;BigMac_15740165717910&#47;Sheet1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1574017217381'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left-50">
+                <h1>Frappe</h1>
+                <div id="vegan" class="bar-line-50">
+                    <div class='tableauPlaceholder' id='viz1574017406851' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fr&#47;Frappe&#47;Frappe&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Frappe&#47;Frappe' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fr&#47;Frappe&#47;Frappe&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1574017406851'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <!--Loading Tableau Visualization-->
+            <div id="right-50">
+                <h1>FrenchFries</h1>
+                <div id="vegan" class="bar-line-50">
+                    <div class='tableauPlaceholder' id='viz1574017433507' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fr&#47;Fries&#47;Fries&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Fries&#47;Fries' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fr&#47;Fries&#47;Fries&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1574017433507'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left-50">
+                <h1>Chicken Nuggets</h1>
+                <div id="vegan" class="bar-line-50">
+                    <div class='tableauPlaceholder' id='viz1574017494564' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Nu&#47;Nuggets&#47;Sheet2&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Nuggets&#47;Sheet2' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Nu&#47;Nuggets&#47;Sheet2&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1574017494564'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <!--Loading Tableau Visualization-->
+            <div id="right-50">
+                <h1>Egg Muffin</h1>
+                <div id="vegan" class="bar-line-50">
+                    <div class='tableauPlaceholder' id='viz1574017521722' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Eg&#47;Egg_Muffin&#47;Sheet1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Egg_Muffin&#47;Sheet1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Eg&#47;Egg_Muffin&#47;Sheet1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1574017521722'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+        </div>
+        <!--Starbucks Analysis-->
+        <div id='eda_div'>
+            <h1>Popular Items in the StarBucks</h1>
+            <div id="left-100">
+                <ul>
+                    <li>
+                        Starbucks is one of the biggest coffee shops in America. According to Washington Post StarBucks
+                        has over 33.5 Million people visiting in a month.
+                    </li>
+                    <li>
+                        <p>The Starbucks data contains nutritional value for all the food and drinks on the StarBucks
+                            Menu. </p>
+                    </li>
+                    <li>
+                        <p>
+                            The data can be analysed to determine the healthiest and unhealthiest food and drinks in
+                            StarBucks.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            By doing this a person can make better nutritional choices while visiting StarBucks.
+                        </p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left">
+                <h1>Sugar in Shakes</h1>
+                <div id="age30">
+                    <div class='tableauPlaceholder' id='viz1573941936030' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;Sugar_in_shake&#47;Sheet1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Sugar_in_shake&#47;Sheet1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;Sugar_in_shake&#47;Sheet1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1573941936030'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>The amount of sugars present in different drinks can be determined in the gragh.</p>
+                    </li>
+                    <li>
+                        <p>Chocolate shake and strawberry shake has the highest amount of sugar.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left">
+                <h1>High Calories Food items in Starbucks</h1>
+                <div id="age50">
+                    <div class='tableauPlaceholder' id='viz1573941742088' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Hi&#47;High_Calorie_Food_Items&#47;Sheet1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='High_Calorie_Food_Items&#47;Sheet1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Hi&#47;High_Calorie_Food_Items&#47;Sheet1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1573941742088'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>Some of the high calorie foods in StarBucks can be seen in the bar chart.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left">
+                <h1>Healthy Food Options in Starbucks</h1>
+                <div id="keto" class="bar-line">
+                    <div class='tableauPlaceholder' id='viz1573941859221' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;88&#47;884TKB9MT&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='path' value='shared&#47;884TKB9MT' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;88&#47;884TKB9MT&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1573941859221'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>After considering the nutritional value of each food items in starbucks, the chart shows the
+                            most healthy options to order at StarBucks</p>
+                    </li>
+                    <li>
+                        <p>
+                            This is determined by comparing the amount of fats,protein, fiber and Carbohydrates with the
+                            daily requirement for an adult.
+                        </p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </section>
+    <!--End of Fast Food analysis section-->
+
+
+    <!--Footer-->
+    <section>
+        <div id="footer">
+            &copy;
+            <script>var d = new Date(); document.write(d.getFullYear());</script>
+            | <a href="#">HTML,CSS</a>
+            | <a href="#">Data Analysis</a>
+            |<a href="#">Visualization</a>
+            | <a href="#">Developed by Vishnupriya</a>
+        </div>
+    </section>
+    <!--End of footer-->
+
+</body>
+
+</html>
