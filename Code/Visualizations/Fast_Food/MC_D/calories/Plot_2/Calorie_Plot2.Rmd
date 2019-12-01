@@ -1,0 +1,46 @@
+---
+title: "Calorie Vs Other Nutrients"
+author: "Vishnupriya"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Analysis  
+### Loading required libraries  
+```{r echo=FALSE,warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(dplyr))
+suppressMessages(library(RColorBrewer))
+suppressMessages(library(devtools))
+suppressMessages(library(tidyr))
+suppressMessages(library(gridExtra))
+suppressMessages(library(viridis))
+```  
+  
+###Load the data  
+```{r}
+menu<-read.csv("/Users/vishnupriyavenkateswaran/Desktop/GWU_Sem4/Datasets/Mc D/menu.csv")
+```
+
+Viewing the structure of data  
+```{r}
+str(menu)
+```
+  ##Nutrients contributing to Calories  
+```{r echo=FALSE}
+g1<-menu%>%ggplot(aes(x=Cholesterol,y=Calories))+geom_point(col="hotpink")+geom_smooth(method="lm",col="hotpink")
+g2<-menu%>%ggplot(aes(x=Carbohydrates,y=Calories))+geom_point(col="navyblue")+geom_smooth(method="lm",col="navyblue")
+g3<-menu%>%ggplot(aes(x=Total.Fat,y=Calories))+geom_point(col="magenta")+geom_smooth(method="lm",col="magenta")
+g3<-menu%>%ggplot(aes(x=Sugars,y=Calories))+geom_point(col="darkorchid4")+geom_smooth(method="lm",col="darkorchid4")
+g4<-menu%>%ggplot(aes(x=Protein,y=Calories))+geom_point(col="firebrick4")+geom_smooth(method="lm",col="firebrick4")
+g5<-menu%>%ggplot(aes(x=Sodium,y=Calories))+geom_point(col="olivedrab4")+geom_smooth(method="lm",col="olivedrab4")
+g6<-menu%>%ggplot(aes(x=Saturated.Fat,y=Calories))+geom_point(col="orange4")+geom_smooth(method="lm",col="orange4")
+g7<-menu%>%ggplot(aes(x=Dietary.Fiber,y=Calories))+geom_point(col="tomato4")+geom_smooth(method="lm",col="tomato4")
+g8<-menu%>%ggplot(aes(x=Trans.Fat,y=Calories))+geom_point(col="slateblue4")+geom_smooth(method="lm",col="slateblue4")
+grid.arrange(g1,g2,g3,g4,g5,g6,g7,g8,nrow=3,ncol=3)
+``` 
+
+### Therefore,Sugar,Carbohydrates,Protein,Saturated Fat & cholestrol are the nutrients that contribute to calories.

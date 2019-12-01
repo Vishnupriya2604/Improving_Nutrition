@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Loading css and js-->
+    <link rel="stylesheet" href="home.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+
+
+    <!--Link to external css from where icons are used in the Nav Bar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!--This section is for the navigation panel of the page-->
+    <section>
+        <nav class='navbar fixed-top'>
+            <ul class='navbar-nav'>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="#home"><i class="fa fa-home"
+                            style="font-size:24px"></i>
+                        Home</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="#EDA"><i class="fa fa-bar-chart"
+                            style="font-size:24px"></i>
+                        EDA</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="fastfood.html"><i class="fa fa-search"
+                            style="font-size:24px"></i>
+                        Fast Food Analysis</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="MachineLearning.html"><i
+                            class="fa fa-puzzle-piece" style="font-size:24px"></i>
+                        Machine Learning</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="Research.html"><i class="fa fa-book"
+                            style="font-size:24px"></i>
+                        Research</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="conclusion.html"><i class="fa fa-wpexplorer"
+                            style="font-size:24px"></i>
+                        Observations</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <!--This section is for the home page image which is included in css-->
+    <section id='home'>
+        <div id="home_page">
+            <div class="bottom-right">
+            </div>
+        </div>
+    </section>
+
+    <!--This section is used for displying nutrition analysis-->
+    <!--<section id="nutrition">-->
+
+    <section id="nutrition">
+        <div id='nutrition_div'>
+            <h1>Goal Of the Project</h1>
+            <div id="left-100">
+                <ul>
+                    <li>
+                        Proper nutrition is one of the keys to a healthy life.
+                        You can improve your health by keeping a balanced diet.
+                        In this project, we can look at the different essential nutrients required for a person of a
+                        certain age and what are the various micronutrients, vitamins, and minerals a person needs
+                        daily.
+                    </li>
+                    <li>
+                        <p>Losing weight and getting healthy is on top of every person’s list. In this project, we look
+                            at the different popular diets in America and determine if they are fit for a person and
+                            which diet is the healthiest one. </p>
+                    </li>
+                    <li>
+                        <p>
+                            Since fast foods are the go-to meals for many people, we do an extensive exploratory data
+                            analysis on fast food restaurants across America to find foods that have a high nutritional
+                            value.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            A food recommender system is built using machine learning models to recommend food items
+                            that are healthier than the person’s initial choice of food.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Using different data science techniques and tools, data is extracted, cleaned, and used to
+                            deep dive into improving nutrition based on derived facts.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id='nutrition_div'>
+            <h1>Why Nutrition is important?</h1>
+            <div id="left-100">
+                <ul>
+                    <li>
+                        Your food choices each day affect your health — how you feel today, tomorrow, and in the
+                        future.Good nutrition is an important part of leading a healthy lifestyle. Combined with
+                        physical activity, your diet can help you to reach and maintain a healthy weight, reduce your
+                        risk of chronic diseases (like heart disease and cancer), and promote your overall health.
+                    </li>
+                    <li>
+                        <p>Unhealthy eating habits have contributed to the obesity epidemic in the United States: about
+                            one-third of U.S. adults (33.8%) are obese and approximately 17% (or 12.5 million) of
+                            children and adolescents aged 2—19 years are obese.Even for people at a healthy weight, a
+                            poor diet is associated with major health risks that can cause illness and even death. These
+                            include heart disease, hypertension (high blood pressure), type 2 diabetes, osteoporosis,
+                            and certain types of cancer. By making smart food choices, you can help protect yourself
+                            from these health problems. </p>
+                    </li>
+                    <li>
+                        <p>The link between good nutrition and healthy weight, reduced chronic disease risk, and overall
+                            health is too important to ignore. By taking steps to eat healthy, you'll be on your way to
+                            getting the nutrients your body needs to stay healthy, active, and strong
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="nutrition_div">
+            <div id="left">
+                <h1>Healthiest Countries In the World</h1>
+                <div id="healthcare_avg_div_1" class="bar-line"></div>
+                <script src="scripts/maptooltip.js"></script>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>There are a variety of factors that contribute to healthy, happy countries. Typically, the
+                            healthiest countries are those that are developed. These countries have lower rates of
+                            pollution, access to quality health care, and access to clean, safe drinking water. The
+                            Bloomberg Global Health Index takes a look at several of these factors to rank the
+                            healthiest countries in the world. The factors considered in this study is Health risks
+                            (tobacco use, high blood pressure, obesity), Availability of clean water, Life expectancy,
+                            Malnutrition and Causes of death.</p>
+                    </li>
+                    <li>
+                        <p>Using these factors, each country is given a rating out of a top score of 100. According to
+                            the 2019 ranking, Spain is considered to have the healthiest people in the world with a
+                            score of 92.75. Other countries that ranked high for health include Italy, Iceland, Japan
+                            and Switzerland. </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End of Nutrition section-->
+
+    <!--This section is for EDA-->
+    <section id="EDA">
+        <div id="eda_div">
+            <div id="left">
+                <h1>Exploratory Data Analysis</h1>
+                <div id="age10">
+                    <div class='tableauPlaceholder' id='viz1570686228666' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ag&#47;Ages1-133&#47;Ages1-3&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Ages1-133&#47;Ages1-3' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ag&#47;Ages1-133&#47;Ages1-3&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='filter' value='publish=yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1570686228666'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>Daily Nutritional Goals for Age Groups Based on Dietary Reference Intakes and Dietary
+                            Guidelines Recommendations by Government of Health United States of America.</p>
+                    </li>
+                    <li>
+                        <p>The pie charts show the percentage of nutrients required for particular age groups. The
+                            nutrients are divided into three categories:
+                            1. Micronutrients
+                            i) Protein
+                            ii) Carbohydrate
+                            iii) Dietary Fiber
+                            iv) Added Sugars
+                            v) Total Fat
+                            vi) Saturated Fat
+                            vii) Linoleic acid
+                            2. Minerals
+                            i) Calcium
+                            ii) Iron
+                            iii) Magnesium
+                            iv) Phosphorous
+                            v) Potassium
+                            vi) Sodium
+                            vii) Zinc
+                            viii) Copper
+                            ix) Manganese
+                            3. Vitamins
+                            i) Vitamin A
+                            ii) Vitamin E
+                            iii) Vitamin D
+                            iv) Vitamin C
+                            v) Thiamin
+                            vi) Riboflavin
+                            vii) Niacin
+                            viii) Choline
+                            ix) Folate
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left">
+                <h1></h1>
+                <div id="age20">
+                    <div class='tableauPlaceholder' id='viz1570686295737' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ag&#47;Ages20&#47;Ages14-18&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Ages20&#47;Ages14-18' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ag&#47;Ages20&#47;Ages14-18&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='filter' value='publish=yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1570686295737'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        Between the ages 14 and 18, significant amounts of carbohyrates, protein, dietary fiber and fats
+                        are to be consumed.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left">
+                <h1></h1>
+                <div id="age30">
+                    <div class='tableauPlaceholder' id='viz1570686363929' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ag&#47;Ages30&#47;Ages19-50&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Ages30&#47;Ages19-50' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ag&#47;Ages30&#47;Ages19-50&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='filter' value='publish=yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1570686363929'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>The pie chart shows the required percentage of nutrients for ages between 19 and 50.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="eda_div">
+            <div id="left">
+                <h1></h1>
+                <div id="age50">
+                    <div class='tableauPlaceholder' id='viz1570684752545' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ag&#47;Ages1-13&#47;Ages50&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Ages1-13&#47;Ages50' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ag&#47;Ages1-13&#47;Ages50&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='filter' value='publish=yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1570684752545'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>The pie chart shows the percentage of nutrients required for people over 50</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id='nutrition_div'>
+            <h1>Popular Diets in United States of America</h1>
+            <div id="left-110">
+                <ul>
+                    <li>
+                        The trend of dieting is increasing everyday. An unhealthy diet is one of the major risk factors
+                        for a range of chronic diseases, including cardiovascular diseases, cancer, diabetes and other
+                        conditions linked to obesity.
+                    </li>
+                    <li>
+                        Improving dietary habits is a societal, not just an individual problem. Therefore it demands a
+                        population-based, multisectoral, multi-disciplinary, and culturally relevant approach.
+                    </li>
+                    <li>
+                        Based on a study conducted by Kaiser Permanente in 2019, the most popular diets in USA are the
+                        Ketogenic Diet, Low Carb Diet and Vegan Diet.
+                    </li>
+                    <li>
+                        In order to study each of these diets, a comparitive bar gragh is plotted in which some of the
+                        important nutrients are compared with the daily requirement.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="keto">
+            <div id="left">
+                <h1>Keto Diet</h1>
+                <div id="keto" class="bar-line">
+                    <div class='tableauPlaceholder' id='viz1572801567952' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ke&#47;Keto&#47;Sheet1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Keto&#47;Sheet1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ke&#47;Keto&#47;Sheet1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1572801567952'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>The ketogenic diet is a very low-carb, high-fat diet.It involves drastically reducing
+                            carbohydrate intake and replacing it with fat. This reduction in carbs puts your body into a
+                            metabolic state called ketosis.</p>
+                    </li>
+                    <li>
+                        <p>The graph shows a comparison between how much nutrients you need in a day and how much you
+                            get while on Keto diet. It requires a person to eat high amounts of fiber and proteins.</p>
+                    </li>
+                    <li>
+                        <p>Some of the side effects of keto diets are Vitamin deficiency, Dehydration, Kidney damage,
+                            Headache, Fatigue, Brain fog,Irritability,Nausea and Stomachache. </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="vegan">
+            <div id="left">
+                <h1>Vegan Diet</h1>
+                <div id="vegan" class="bar-line">
+                    <div class='tableauPlaceholder' id='viz1572801945292' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ve&#47;Vegan_15703758377050&#47;Sheet1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Vegan_15703758377050&#47;Sheet1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ve&#47;Vegan_15703758377050&#47;Sheet1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1572801945292'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>Vegan diet is a type of vegetarian diet that excludes meat, eggs, dairy products, and all
+                            other animal-derived ingredients. This diet based on a wide variety of whole plant foods
+                            such as fruits, vegetables, whole grains, legumes, nuts and seeds.
+                    </li>
+                    <li>
+                        <p>The graph shows a comparison between how much nutrients you need in a day and how much you
+                            get while on Vegan diet. This diet is most beneficial when done the right way. It provides a
+                            balanced diet with proper amount of carbs, fiber and protein.</p>
+                    </li>
+                    <li>
+                        <p>Some of the side effects of a Vegan diet is that it leads to vitamin deficiency which can be
+                            solved by changing the vegan diet accordingly. This diet is the best diet in compared to
+                            other diets to be healthy. </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Loading Tableau Visualization-->
+        <div id="lowcarb-c">
+            <div id="left">
+                <h1>Low-Carb Diet</h1>
+                <div id="lowcarb" class="bar-line">
+                    <div class='tableauPlaceholder' id='viz1572801966732' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Lo&#47;Low_Carb_Diet&#47;Sheet1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Low_Carb_Diet&#47;Sheet1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Lo&#47;Low_Carb_Diet&#47;Sheet1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' /></object></div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1572801966732'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <p>A low-carb diet limits carbohydrates — such as those found in grains, starchy vegetables and
+                            fruit and emphasizes foods high in protein and fat. The graph shows a comparison between how
+                            much nutrients you need in a day and how much you get while on Low Carb diet. </p>
+                    </li>
+                    <li>
+                        <p>As seen none of the daily nutrient value is met. Some of the side effects of the low carb
+                            diets are Headache,Weakness,Muscle cramps,Fatigue,Skin rash, Constipation or diarrhea and
+                            long term side effects include kidney damage, increased cancer risk, impairment of physical
+                            activity and lipid abnormalities can all be linked to long-term restriction of carbohydrates
+                            in the diet.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End of EDA section-->
+
+
+    <!--Footer-->
+    <section>
+        <div id="footer">
+            &copy;
+            <script>var d = new Date(); document.write(d.getFullYear());</script>
+            | <a href="#">HTML,CSS</a>
+            | <a href="#">Data Analysis</a>
+            |<a href="#">Visualization</a>
+            | <a href="#">Developed by Vishnupriya</a>
+        </div>
+    </section>
+    <!--End of footer-->
+
+</body>
+
+</html>

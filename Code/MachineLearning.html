@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="home.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+
+
+    <!--Link to external css from where icons are used in the Nav Bar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!--This section is for the navigation panel of the page-->
+    <section>
+        <nav class='navbar fixed-top'>
+            <ul class='navbar-nav'>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="home.html#home"><i class="fa fa-home"
+                            style="font-size:24px"></i>
+                        Home</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="home.html#EDA"><i class="fa fa-bar-chart"
+                            style="font-size:24px"></i>
+                        EDA</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="fastfood.html"><i class="fa fa-search"
+                            style="font-size:24px"></i>
+                        Fast Food Analysis</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="MachineLearning.html"><i
+                            class="fa fa-puzzle-piece" style="font-size:24px"></i>
+                        Machine Learning</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="Research.html"><i class="fa fa-book"
+                            style="font-size:24px"></i>
+                        Research</a>
+                </li>
+                <li class='nav-item'>
+                    <a class="nav-link js-scroll-trigger active" href="conclusion.html"><i class="fa fa-wpexplorer"
+                            style="font-size:24px"></i>
+                        Observations</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <!--End of Nav Section-->
+
+    <!--Machine Learning Page-->
+
+    <section id='EDA' style="height:100%;">
+
+        <h1>Healthy Food Recommender System</h1>
+        <p>
+            To build a Health Food Recommendation System I used unsupervised learning. "Nutrient profiling
+            of foods, described as the science of ranking foods based on their nutrient content, is fast
+            becoming the basis for regulating nutrition labels, health claims, and marketing and advertising
+            to children. A number of nutrient profile models have now been developed by research scientists,
+            regulatory agencies, and by the food industry. Whereas some of these models have focused on
+            nutrients to limit, others have emphasized nutrients known to be beneficial to health, or some
+            combination of both. Although nutrient profile models are often tailored to specific goals, the
+            development process ought to follow the same science-driven rules. These include the selection
+            of index nutrients and reference amounts, the development of an appropriate algorithm for
+            calculating nutrient density, and the validation of the chosen nutrient profile model against
+            healthy diets. It is extremely important that nutrient profiles be validated rather than merely
+            compared to prevailing public opinion.
+            The definition of healthy or nutrient dense foods has taken many forms over the years:
+            more nutrients, fewer calories
+            bucketing certain food groups as healthy: fruits, veggies, lean meats, etc
+            bucketing certain foods as unhealthy: high fat (including nuts, olives, coconuts and avocados)
+            (fat phobia)
+            "dark-green leafy and deep-orange vegetables [as] especially good sources of vitamins and
+            minerals"
+            "Generally excluded from the definition of nutrient-dense foods were those that contained added
+            fat, sugar, or sodium."
+            Focus on Recommended Dietary Allowance - rigidity of this method disqualified a lot of foods
+            Reference amounts: Gradients of nutrient density - "good source of", "excellent source of" vs.
+            "free", "low", "reduced", "less"
+            Tiers of foods
+            "It is only recently that the FDA has explored the feasibility of allowing health claims if a
+            food had a favorable nutrient profile, as an alternative to current measures based on grams of
+            nutrients per serving"
+            "Nutrient profile models can be based on 1) qualifying nutrients known to be beneficial to
+            health, mostly vitamins and minerals; 2) disqualifying nutrients, mostly fats, sugars, and
+            sodium; or 3) some combination of both. The content of fruits, vegetables, nuts, or whole grains
+            in a food can also be taken into account."
+            There are many algorithms used for nutrient profiling. The algorithm I used was Nutrient Rich
+            Food Algorithm that calculates the percentage mean of Daily value of nutrients.
+        </p>
+        <p>
+            Nutrients to be used can be:
+            Nutrients beneficial to health selected macronutrients (protein, fiber, essential fatty acids)
+            vitamins (vitamins A and C), and minerals (calcium and iron), omega-3 fatty acids, B-vitamins
+            and folate, and additional minerals, typically potassium, zinc, and magnesium
+            Harmful nutrients FDA: total fat, saturated fat, cholesterol, sodium
+            The next step is to clean the data and remove the unwanted columns and null values. Then the
+            nutrient profile is calculated using the above algorithm. The nutrients are classified for all
+            the food categories. Then I used the K-Means algorithm to cluster all the food groups with
+            similar nutrient density. After the model is deployed the food recommender is used to recommend
+            healthier options.
+
+        </p>
+        <p>
+            Sample Outputs can be seen as below:
+            <p>Input: Vanilla Ice Cream With Chocolate Wafers</p>
+            <img style="max-width:100%;" src="images_used/result1.png">
+            <p>Input: Cupcake </p>
+            <img style="max-width:100%;" src="images_used/result2.png">
+
+        </p>
+        <p>
+            Some of the other outputs are as below :
+
+            Input: Cupcakes. Recommendation: Donuts (More Calcium, Lesser Sugar)
+            Input: Pinto Beans. Recommendation: Black Beans. (More potassium, protein, calcium and iron)
+            Input: Cheddar Cheese. Recommendation: Italian Cheese (More Vitamin A, less sodium)
+            The results turned out to be very good as the recommender suggested a healthier food alternative
+            when compared to the initial choice of food.
+
+        </p>
+        <p>
+            Link to the code : <a id="link" href="https://github.com/Vishnupriya2604/Improving_Nutrition/tree/master/Machine_Learning/Healthy_FoodRecommender">Healthy Food Recommender</a>
+
+        </p>
+
+
+
+        <h1>Predicting Micronutrients Using Random Forest</h1>
+
+
+
+        <p>
+            I used supervised machine learning to predict micronutrients
+            within certain foods. In this case, the input are records of the amount of nutrient
+            composition within each food, and the task is to predict the micronutrients based on other
+            nutrients and compare how far are the predicted values from the true values.
+            Before building the model. I wanted to check the correlation among the variables.
+            This can be as seen in the correlation plot.</p>
+        <img style="max-width:100%;" src="images_used/cor_plot.png">
+        <p> We can see that some of the nutrients are either
+            positively correlated or show no correlation with other nutrients, while only a couple
+            is negatively correlated.</p>
+
+        <p>
+            Now we chose the labels. I chose to predict Calcium, Iron, Zinc, Vitamin A, Vitamin D,
+            Folate. First, we need to split the input data and labels in a training and test set. The
+            Scikit-learn’s train_test_split function makes this process convenient. Now, we need to
+            standardize our data before coding the model. This is important because some of the
+            nutrients use different units. For example, Vitamin A uses the UI unit, while Carbohydrate
+            uses the gram.
+            We will be using Scikit-learn’s RobustScalerto standardize our data so that all of them are
+            robust against the differences in units. Then we initialize the model and train it using the
+            train data. Since we have a multiple output variable, we need to use MultiOutputRegressor to
+            the random forest model.
+            The models has an accuracy of 94% on the training data and 62% on the test data. The model
+            does not overfit or underfit the data.
+            A sample output for cheese is as follow:
+            True value: Vitamin A- 650, Iron-0.31, Zinc-2.70, Calcium -500, Vitamin D-30, Folate- 16
+            Predicted value: Vitamin A- 721, Iron-0.31, Zinc-2.66, Calcium -528, Vitamin D-21, Folate-
+            36
+
+        </p>
+
+        <p>
+            Link to the code : <a id = "link" href="https://github.com/Vishnupriya2604/Improving_Nutrition/tree/master/Machine_Learning/Random_Forest"> Random Forest</a>
+
+        </p>
+
+
+
+
+    </section>
+    <!--End of Machine Learning Section-->
+
+    <!--Footer-->
+    <section>
+        <div id="footer">
+            &copy;
+            <script>var d = new Date(); document.write(d.getFullYear());</script>
+            | <a href="#">HTML,CSS</a>
+            | <a href="#">Data Analysis</a>
+            |<a href="#">Visualization</a>
+            | <a href="#">Developed by Vishnupriya</a>
+        </div>
+    </section>
+    <!--End of footer-->
+
+</body>
+
+</html>
